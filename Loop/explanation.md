@@ -35,14 +35,14 @@ In our case it will make the task wait 3 seconds.
 
 Output : 
 
-             #As you run the funciton.
+            #As you run the funciton.
             #3 seconds after
-             Task 0 completed
-           #again after 3 seconds
-             Task 1 complete
-              .
+            Task 0 completed
+            #again after 3 seconds
+            Task 1 complete
             .
-           Task 4 completed
+            .
+            Task 4 completed
 
 
 # Gather for async loop
