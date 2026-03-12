@@ -1,6 +1,6 @@
 # Async loop
 
-Async loop allow you to iterate over a **task** without blocking the I/O
+Asynchronous loops allow you to handle multiple operations without blocking your program. 
 
 I want you to focus on `asyncioloop.py` it's a very basic method for asynchronous looping.
 Requires no function of `asyncio` library. 
@@ -16,22 +16,15 @@ async def task(n):
 ```
 This is a simple async function where a task will be created *"n"* times. 
 
-        asyncio.sleep()
-Allow us to use one of the common function of **asyncio**. What it does is makes the 
-function sleep/wait for given amount of time. In our case it's **3 seconds**.
-
-
 ```
 async def main():
     for i in range(5):
         await task(i)
 ```
-This is our **main()** function that has a for loop given a **range** of 5 means
-the task will iterate over 5 times. Followed by :
+# How it works: 
+The await task(i) line tells the program: "Pause here and wait for this specific task to finish before moving to the next iteration of the loop."
 
-           await task(i)
-This is similar to saying : "**pause the execution of function until tge awaited task is completed**".
-In our case it will make the task wait 3 seconds.
+Because each task takes 3 seconds, and we are doing 5 of them one-by-one, the total time will be 15 seconds. This is technically "**asynchronous**," but it isn't "**concurrent**."
 
 Output : 
 
@@ -47,19 +40,18 @@ Output :
 
 # Gather for async loop
 
+
+
 ```
 async def main():
     tasks = [task(i) for i in range(5)]
     await asyncio.gather(*tasks)
 ```
-
-It's the same function the only difference is we're using **gather** here.
-
 What `.gather()` does it takes multiple awaitables(like coroutines, futures and tasks) and schedules
 them to be run concurrently. When all of  tem complete **gather()** returns a list of their results in the same 
 order as the input tasks.
 
-If you pass an coroutine to **gather()** it  will automatically wraps it into a **task**.
+In this version, the program starts all 5 tasks simultaneously. After 3 seconds, all 5 tasks will finish almost at once.
 
                  asyncio.gather(*tasks)
 The `*` is  the argument unpacking operator also called the "splat" operator.
@@ -81,6 +73,12 @@ Example without unpacking(wrong for multiple tasks):
 
   Hence, without it, gather() would see one argument (the list), not multiple tasks.
 
-  Note : If you running the code in VS code or similar IDE. You muse use `asyncio.run((main))`.
-  The `await main()` is the way to run asynchronous code in **Jupyter**.
-  
+# Environment Tip
+
+If you are running this code in VS Code or a standard .py file, use:
+
+`asyncio.run(main())`
+
+If you are using Jupyter Notebooks or IPython, the event loop is already running, so you just use:
+
+`await main()`
