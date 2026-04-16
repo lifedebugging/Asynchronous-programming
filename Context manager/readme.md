@@ -38,5 +38,6 @@ See? Just like our **event manager** they will wrap up the wedding and clean up,
 
 To fully undersand the `with` statement need, run : [with_statement_demo](with_statement_demo.py)
 
+**Result will be something like** : [result](with_statement_demo_result.txt)
 
-
+----------------------------------------------------------------------------------------
