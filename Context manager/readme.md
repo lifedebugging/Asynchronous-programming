@@ -36,5 +36,7 @@ Here, `f.close()` will close regardless the program will crash or not.
 
 See? Just like our **event manager** they will wrap up the wedding and clean up, making sure everything is closed and safe whether the wedding crashes or not.
 
-To fully undersand the `with` statement need, run this piece of code.
+To fully undersand the `with` statement need, run : [with_statement_demo](with_statement_demo.py)
+
+
 
