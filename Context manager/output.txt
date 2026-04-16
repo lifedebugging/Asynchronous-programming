@@ -1,0 +1,5 @@
+connecting
+connected
+Resulf of: Select * from users
+Disconnectiong..
+Disconnected
