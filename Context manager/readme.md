@@ -7,7 +7,7 @@ That's exactly what context manager is it's just "**A wrapper that handles setup
 
 # Why do we need it?
 
-Well in techincal terms : **T prevent resource leaks**
+Well in techincal terms : **To prevent resource leaks**
 
 # Examples 
 
